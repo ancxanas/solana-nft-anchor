@@ -21,8 +21,7 @@ describe("solana-nft-anchor", async () => {
   // Configured the client to use the devnet cluster.
   const provider = anchor.AnchorProvider.env();
   anchor.setProvider(provider);
-  const program = anchor.workspace
-    .SolanaNftAnchor as Program<SolanaNftAnchor>;
+  const program = anchor.workspace.SolanaNftAnchor as Program<SolanaNftAnchor>;
 
   const signer = provider.wallet;
 
@@ -35,7 +34,7 @@ describe("solana-nft-anchor", async () => {
   // Derive the associated token address account for the mint
   const associatedTokenAccount = await getAssociatedTokenAddress(
     mint.publicKey,
-    signer.publicKey
+    signer.publicKey,
   );
 
   // derive the metadata account
@@ -73,10 +72,10 @@ describe("solana-nft-anchor", async () => {
       .rpc();
 
     console.log(
-      `mint nft tx: https://explorer.solana.com/tx/${tx}?cluster=devnet`
+      `mint nft tx: https://explorer.solana.com/tx/${tx}?cluster=devnet`,
     );
     console.log(
-      `minted nft: https://explorer.solana.com/address/${mint.publicKey}?cluster=devnet`
+      `minted nft: https://explorer.solana.com/address/${mint.publicKey}?cluster=devnet`,
     );
   });
 });
